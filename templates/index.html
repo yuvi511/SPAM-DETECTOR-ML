@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spam Detector</title>
+    <!-- Include Bootstrap CSS from a CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Include custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="jumbotron text-center">
+            <h1 class="display-4">Spam Detector</h1>
+            <p class="lead">Detect spam emails with ease.</p>
+        </div>
+        <form method="POST" class="mt-4">
+            <div class="form-group">
+                <label for="message">Enter your message:</label>
+                <textarea name="message" rows="6" class="form-control" id="message" placeholder="Type your message here..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Check Spam</button>
+        </form>
+        {% if result %}
+            <div class="mt-4 alert alert-info">
+                <h4 class="alert-heading">Result:</h4>
+                <p>{{ result }}</p>
+            </div>
+        {% endif %}
+    </div>
+    <!-- Include Bootstrap JS and jQuery from CDNs if needed -->
+    <footer class="text-center mt-4">
+        Made with ❤️ by Yuvraj Saha &copy; 2023
+    </footer>
+</body>
+</html>
